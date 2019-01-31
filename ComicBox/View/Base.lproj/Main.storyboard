@@ -271,10 +271,6 @@
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="6BZ-BG-lL3" id="kus-Xz-BdV"/>
-                                                    <outlet property="delegate" destination="6BZ-BG-lL3" id="aGJ-uU-hVV"/>
-                                                </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-jo-alI">
                                                 <rect key="frame" x="251" y="13" width="55" height="20"/>
@@ -404,10 +400,6 @@
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="6BZ-BG-lL3" id="EC3-I3-nMf"/>
-                                                    <outlet property="delegate" destination="6BZ-BG-lL3" id="tTS-53-BiR"/>
-                                                </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns2-HC-6N3">
                                                 <rect key="frame" x="251" y="13" width="55" height="20"/>
