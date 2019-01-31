@@ -13,7 +13,7 @@
         <!--ComicBox-->
         <scene sceneID="vpa-Nr-ZC7">
             <objects>
-                <viewController id="IFD-Ih-0LA" sceneMemberID="viewController">
+                <viewController id="IFD-Ih-0LA" customClass="FavoriteViewController" customModule="ComicBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sZC-ks-d5o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="851"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                                     <constraint firstAttribute="width" constant="328" id="KKH-Aj-feL"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Rl-XV-Yxs">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentlyFavoriteCell" id="5Rl-XV-Yxs">
                                                         <rect key="frame" x="0.0" y="28" width="328" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Rl-XV-Yxs" id="zsZ-KI-rm6">
@@ -54,6 +54,10 @@
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="IFD-Ih-0LA" id="pEU-wf-Xcw"/>
+                                                    <outlet property="delegate" destination="IFD-Ih-0LA" id="0vA-2k-0tk"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,7 +93,7 @@
                                                 <rect key="frame" x="16" y="42" width="328" height="362"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="I9Y-00-c5L">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesFolderCell" id="I9Y-00-c5L">
                                                         <rect key="frame" x="0.0" y="28" width="328" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I9Y-00-c5L" id="Aua-t9-ylO">
@@ -98,6 +102,10 @@
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="IFD-Ih-0LA" id="ebw-xT-pCm"/>
+                                                    <outlet property="delegate" destination="IFD-Ih-0LA" id="zOx-ec-GaV"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +167,7 @@
         <!--ComicBox-->
         <scene sceneID="jBX-At-9rd">
             <objects>
-                <viewController id="6BZ-BG-lL3" sceneMemberID="viewController">
+                <viewController id="6BZ-BG-lL3" customClass="HomeViewController" customModule="ComicBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F3W-L7-kKa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="901"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,9 +254,6 @@
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comic Shelf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWa-by-hsI">
                                                 <rect key="frame" x="51" y="13" width="99" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="XsP-gj-hom"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -256,12 +261,8 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FST-S2-Wxa">
                                                 <rect key="frame" x="23" y="42" width="301" height="117"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="301" id="FdR-OQ-qFG"/>
-                                                    <constraint firstAttribute="height" constant="117" id="wRH-bp-W2O"/>
-                                                </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeComicShelf" id="lzC-Rk-mN8">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeComicShelfCell" id="lzC-Rk-mN8">
                                                         <rect key="frame" x="0.0" y="28" width="301" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lzC-Rk-mN8" id="gsO-jr-G7K">
@@ -270,32 +271,36 @@
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="6BZ-BG-lL3" id="kus-Xz-BdV"/>
+                                                    <outlet property="delegate" destination="6BZ-BG-lL3" id="aGJ-uU-hVV"/>
+                                                </connections>
                                             </tableView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View all &gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Cp-5C-ziF">
-                                                <rect key="frame" x="251" y="13" width="73" height="20"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEL-jo-alI">
+                                                <rect key="frame" x="251" y="13" width="55" height="20"/>
+                                                <state key="normal" title="View All"/>
+                                                <connections>
+                                                    <action selector="viewAllComics:" destination="6BZ-BG-lL3" eventType="touchUpInside" id="8JC-Jj-vWo"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="SWa-by-hsI" firstAttribute="leading" secondItem="Eup-y3-NnE" secondAttribute="trailing" constant="8" id="0AP-KV-nj4"/>
-                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="top" secondItem="Eup-y3-NnE" secondAttribute="bottom" constant="8" id="3vS-d6-Omr"/>
-                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="top" secondItem="Eup-y3-NnE" secondAttribute="bottom" constant="8" id="E0k-ph-s3C"/>
-                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="top" secondItem="SWa-by-hsI" secondAttribute="bottom" constant="8" id="EEE-gs-OA3"/>
-                                            <constraint firstItem="SWa-by-hsI" firstAttribute="top" secondItem="c0s-Jb-5AT" secondAttribute="top" constant="13" id="NLb-Bb-ZYf"/>
-                                            <constraint firstItem="9Cp-5C-ziF" firstAttribute="top" secondItem="c0s-Jb-5AT" secondAttribute="top" constant="13" id="Pky-bb-DcC"/>
+                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="top" secondItem="vEL-jo-alI" secondAttribute="bottom" constant="9" id="B19-QB-FkO"/>
+                                            <constraint firstItem="SWa-by-hsI" firstAttribute="leading" secondItem="Eup-y3-NnE" secondAttribute="trailing" constant="8" id="BTj-gV-QXv"/>
+                                            <constraint firstItem="SWa-by-hsI" firstAttribute="top" secondItem="c0s-Jb-5AT" secondAttribute="top" constant="13" id="H8j-j0-Sva"/>
+                                            <constraint firstItem="vEL-jo-alI" firstAttribute="leading" secondItem="SWa-by-hsI" secondAttribute="trailing" constant="101" id="KHJ-FD-lKL"/>
+                                            <constraint firstItem="vEL-jo-alI" firstAttribute="leading" secondItem="SWa-by-hsI" secondAttribute="trailing" constant="101" id="KpT-wQ-526"/>
                                             <constraint firstItem="Eup-y3-NnE" firstAttribute="top" secondItem="c0s-Jb-5AT" secondAttribute="top" constant="14" id="QvK-U5-nXr"/>
-                                            <constraint firstItem="SWa-by-hsI" firstAttribute="leading" secondItem="Eup-y3-NnE" secondAttribute="trailing" constant="8" id="U7d-5q-5DI"/>
-                                            <constraint firstAttribute="bottom" secondItem="FST-S2-Wxa" secondAttribute="bottom" constant="8" id="Wgj-wp-7q9"/>
-                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="leading" secondItem="c0s-Jb-5AT" secondAttribute="leading" constant="23" id="Xmz-6s-0sN"/>
+                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="leading" secondItem="c0s-Jb-5AT" secondAttribute="leading" constant="23" id="Rwb-0h-ZTf"/>
                                             <constraint firstAttribute="height" constant="167" id="YEn-Ag-n54"/>
-                                            <constraint firstAttribute="trailing" secondItem="FST-S2-Wxa" secondAttribute="trailing" constant="19" id="YmA-gK-Too"/>
-                                            <constraint firstAttribute="trailing" secondItem="9Cp-5C-ziF" secondAttribute="trailing" constant="19" id="fML-Dr-bB3"/>
+                                            <constraint firstItem="vEL-jo-alI" firstAttribute="top" secondItem="c0s-Jb-5AT" secondAttribute="top" constant="13" id="cWD-kO-P1f"/>
+                                            <constraint firstAttribute="trailing" secondItem="vEL-jo-alI" secondAttribute="trailing" constant="37" id="diF-47-8dY"/>
                                             <constraint firstItem="Eup-y3-NnE" firstAttribute="leading" secondItem="c0s-Jb-5AT" secondAttribute="leading" constant="23" id="fum-1N-Hmf"/>
-                                            <constraint firstItem="9Cp-5C-ziF" firstAttribute="leading" secondItem="SWa-by-hsI" secondAttribute="trailing" constant="101" id="ktR-aB-TG8"/>
-                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="top" secondItem="9Cp-5C-ziF" secondAttribute="bottom" constant="9" id="rNF-5S-bNL"/>
+                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="top" secondItem="Eup-y3-NnE" secondAttribute="bottom" constant="8" id="jkH-UX-3M4"/>
+                                            <constraint firstAttribute="bottom" secondItem="FST-S2-Wxa" secondAttribute="bottom" constant="8" id="mTh-H2-qsy"/>
+                                            <constraint firstItem="FST-S2-Wxa" firstAttribute="top" secondItem="SWa-by-hsI" secondAttribute="bottom" constant="8" id="vdN-Sn-6m7"/>
+                                            <constraint firstAttribute="trailing" secondItem="FST-S2-Wxa" secondAttribute="trailing" constant="19" id="xax-wn-gMz"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKD-h3-FuE" userLabel="New Bookmark View">
@@ -382,9 +387,6 @@
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yf-HX-Uny">
                                                 <rect key="frame" x="51" y="13" width="92" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="fjq-Rm-hm9"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -392,12 +394,8 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZO-WZ-adM">
                                                 <rect key="frame" x="23" y="41" width="301" height="118"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="301" id="SE1-WY-Yqq"/>
-                                                    <constraint firstAttribute="height" constant="118" id="yXl-7b-rFg"/>
-                                                </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeComicShelf" id="f2s-fo-wWa">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeBookmarksCell" id="f2s-fo-wWa">
                                                         <rect key="frame" x="0.0" y="28" width="301" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f2s-fo-wWa" id="PnL-CA-QOK">
@@ -406,32 +404,36 @@
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="6BZ-BG-lL3" id="EC3-I3-nMf"/>
+                                                    <outlet property="delegate" destination="6BZ-BG-lL3" id="tTS-53-BiR"/>
+                                                </connections>
                                             </tableView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View all &gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuC-Kz-e5I">
-                                                <rect key="frame" x="251" y="13" width="73" height="20"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns2-HC-6N3">
+                                                <rect key="frame" x="251" y="13" width="55" height="20"/>
+                                                <state key="normal" title="View All"/>
+                                                <connections>
+                                                    <action selector="viewAllBookmarks:" destination="6BZ-BG-lL3" eventType="touchUpInside" id="Jzl-NB-qg7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="top" secondItem="PuC-Kz-e5I" secondAttribute="bottom" constant="8" id="3WQ-Xk-G0P"/>
-                                            <constraint firstAttribute="trailing" secondItem="PuC-Kz-e5I" secondAttribute="trailing" constant="19" id="862-Vx-1L2"/>
                                             <constraint firstItem="JW0-IM-pIy" firstAttribute="leading" secondItem="vJo-1k-6dq" secondAttribute="leading" constant="23" id="AqB-eY-nxW"/>
-                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="top" secondItem="JW0-IM-pIy" secondAttribute="bottom" constant="7" id="Cge-bE-Z2d"/>
-                                            <constraint firstItem="PuC-Kz-e5I" firstAttribute="leading" secondItem="2Yf-HX-Uny" secondAttribute="trailing" constant="108" id="EyT-se-J3X"/>
-                                            <constraint firstItem="2Yf-HX-Uny" firstAttribute="leading" secondItem="JW0-IM-pIy" secondAttribute="trailing" constant="8" id="MXI-0o-NQD"/>
-                                            <constraint firstItem="2Yf-HX-Uny" firstAttribute="leading" secondItem="JW0-IM-pIy" secondAttribute="trailing" constant="8" id="Nm5-zx-4HR"/>
+                                            <constraint firstItem="Ns2-HC-6N3" firstAttribute="leading" secondItem="2Yf-HX-Uny" secondAttribute="trailing" constant="108" id="Dhv-TO-mMZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="kZO-WZ-adM" secondAttribute="trailing" constant="19" id="HKM-t9-dxg"/>
+                                            <constraint firstItem="2Yf-HX-Uny" firstAttribute="top" secondItem="vJo-1k-6dq" secondAttribute="top" constant="13" id="O8i-s8-I7k"/>
+                                            <constraint firstAttribute="bottom" secondItem="kZO-WZ-adM" secondAttribute="bottom" constant="8" id="ONN-Pn-GZV"/>
+                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="top" secondItem="JW0-IM-pIy" secondAttribute="bottom" constant="7" id="PX4-s5-RPw"/>
                                             <constraint firstItem="JW0-IM-pIy" firstAttribute="top" secondItem="vJo-1k-6dq" secondAttribute="top" constant="14" id="Rsy-lS-wfj"/>
-                                            <constraint firstAttribute="bottom" secondItem="kZO-WZ-adM" secondAttribute="bottom" constant="8" id="VVf-sp-YMJ"/>
-                                            <constraint firstItem="PuC-Kz-e5I" firstAttribute="top" secondItem="vJo-1k-6dq" secondAttribute="top" constant="13" id="YQb-hg-nUl"/>
-                                            <constraint firstItem="2Yf-HX-Uny" firstAttribute="top" secondItem="vJo-1k-6dq" secondAttribute="top" constant="13" id="c99-UM-t9g"/>
-                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="top" secondItem="JW0-IM-pIy" secondAttribute="bottom" constant="7" id="d8E-Le-Fvf"/>
-                                            <constraint firstAttribute="trailing" secondItem="kZO-WZ-adM" secondAttribute="trailing" constant="19" id="ofX-iX-gBT"/>
+                                            <constraint firstItem="Ns2-HC-6N3" firstAttribute="top" secondItem="vJo-1k-6dq" secondAttribute="top" constant="13" id="eHW-ia-EpQ"/>
+                                            <constraint firstItem="2Yf-HX-Uny" firstAttribute="leading" secondItem="JW0-IM-pIy" secondAttribute="trailing" constant="8" id="fhq-Fq-yf6"/>
+                                            <constraint firstItem="Ns2-HC-6N3" firstAttribute="leading" secondItem="2Yf-HX-Uny" secondAttribute="trailing" constant="108" id="heN-Wj-Tv6"/>
+                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="top" secondItem="2Yf-HX-Uny" secondAttribute="bottom" constant="8" id="nEQ-o0-fsK"/>
                                             <constraint firstAttribute="height" constant="167" id="ohj-n5-EOW"/>
-                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="top" secondItem="2Yf-HX-Uny" secondAttribute="bottom" constant="8" id="r3C-IU-6zO"/>
-                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="leading" secondItem="vJo-1k-6dq" secondAttribute="leading" constant="23" id="us2-dN-Qkf"/>
+                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="top" secondItem="Ns2-HC-6N3" secondAttribute="bottom" constant="8" id="pe4-CE-UJ1"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ns2-HC-6N3" secondAttribute="trailing" constant="37" id="tAl-qr-nF2"/>
+                                            <constraint firstItem="kZO-WZ-adM" firstAttribute="leading" secondItem="vJo-1k-6dq" secondAttribute="leading" constant="23" id="thL-Qi-TYL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -468,6 +470,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="ComicBox" id="L9B-O1-Qip"/>
                     <size key="freeformSize" width="375" height="950"/>
+                    <connections>
+                        <outlet property="newBookmarkDate" destination="gWl-yl-YFD" id="rBv-7z-0Pa"/>
+                        <outlet property="newBookmarkDescription" destination="WEs-2c-Ndp" id="gGn-yc-D5E"/>
+                        <outlet property="newBookmarkTitle" destination="Ajc-2g-aS4" id="Gej-wa-Prv"/>
+                        <outlet property="recentReleaseBookmark" destination="ckv-hB-Wzq" id="zhd-x7-FYz"/>
+                        <outlet property="recentReleaseDate" destination="jRN-k7-gW1" id="DTY-wR-QPu"/>
+                        <outlet property="recentReleaseDescription" destination="Sys-JP-AP6" id="mHz-YS-yty"/>
+                        <outlet property="recentReleaseTitle" destination="4tc-Is-Q16" id="g8f-if-wtw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ci2-8g-j4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -511,7 +522,7 @@
                                         <rect key="frame" x="8" y="8" width="323" height="149"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JYf-3B-LEI">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentSearchesCell" id="JYf-3B-LEI">
                                                 <rect key="frame" x="0.0" y="28" width="323" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JYf-3B-LEI" id="3vH-eG-5U9">
@@ -520,6 +531,10 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="bcw-lR-ZjV" id="68T-Kc-dBg"/>
+                                            <outlet property="delegate" destination="bcw-lR-ZjV" id="NQl-y7-gOb"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -548,7 +563,7 @@
                                         <rect key="frame" x="8" y="8" width="323" height="149"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uld-TR-2DZ">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MostSearchesCell" id="uld-TR-2DZ">
                                                 <rect key="frame" x="0.0" y="28" width="323" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uld-TR-2DZ" id="pNh-Ks-0du">
@@ -557,6 +572,10 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="bcw-lR-ZjV" id="Rds-NF-B7w"/>
+                                            <outlet property="delegate" destination="bcw-lR-ZjV" id="j1Z-2I-vfc"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -637,10 +656,10 @@
             </objects>
             <point key="canvasLocation" x="2636" y="-1221"/>
         </scene>
-        <!--View Controller-->
+        <!--Bookmarks View Controller-->
         <scene sceneID="IE2-M0-PV0">
             <objects>
-                <viewController id="DNi-5z-V8g" sceneMemberID="viewController">
+                <viewController id="DNi-5z-V8g" customClass="BookmarksViewController" customModule="ComicBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9tb-gf-beM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
