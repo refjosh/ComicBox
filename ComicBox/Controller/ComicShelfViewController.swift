@@ -18,8 +18,6 @@ class ComicShelfViewController: UIViewController, UITableViewDataSource, UITable
 //    var delegate: ClearToLand?
     
     var allComics = [String]()
-    
-    var selectedTitleIndex: Int = 0
 
     @IBOutlet weak var comicShelfTable: UITableView!
     
@@ -29,6 +27,7 @@ class ComicShelfViewController: UIViewController, UITableViewDataSource, UITable
         navigationItem.title = "Comic Shelf"
     }
     
+    //MARK: - Display Content From Array In TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allComics.count
@@ -47,7 +46,16 @@ class ComicShelfViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ToReadView", sender: self)
+    }
+    
+    //MARK: - Send ComicID through Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ViewController
         
+        if let indexPath = comicShelfTable.indexPathForSelectedRow {
+            destinationVC.comicID = indexPath.row + 1
+        }
     }
 
 }
