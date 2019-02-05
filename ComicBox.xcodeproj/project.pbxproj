@@ -12,7 +12,6 @@
 		8569C918220378C400118785 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C917220378C400118785 /* FavoriteViewController.swift */; };
 		8569C91A220378DE00118785 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C919220378DE00118785 /* SearchViewController.swift */; };
 		8569C91C2203790100118785 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C91B2203790100118785 /* BookmarksViewController.swift */; };
-		85869739220395F5007B801A /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85869738220395F5007B801A /* Calendar.swift */; };
 		8586973B2203D31B007B801A /* ComicShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586973A2203D31B007B801A /* ComicShelfViewController.swift */; };
 		85DC96C621FE862400A08FB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DC96C521FE862400A08FB4 /* AppDelegate.swift */; };
 		85DC96C821FE862400A08FB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DC96C721FE862400A08FB4 /* ViewController.swift */; };
@@ -28,7 +27,6 @@
 		8569C917220378C400118785 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		8569C919220378DE00118785 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8569C91B2203790100118785 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
-		85869738220395F5007B801A /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		8586973A2203D31B007B801A /* ComicShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicShelfViewController.swift; sourceTree = "<group>"; };
 		85DC96C221FE862400A08FB4 /* ComicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DC96C521FE862400A08FB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +93,7 @@
 		8569C912220377F300118785 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				85869738220395F5007B801A /* Calendar.swift */,
+				85DC96CC21FE862400A08FB4 /* ComicBox.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,7 +126,6 @@
 				85DC96CF21FE862600A08FB4 /* Assets.xcassets */,
 				85DC96D121FE862600A08FB4 /* LaunchScreen.storyboard */,
 				85DC96D421FE862600A08FB4 /* Info.plist */,
-				85DC96CC21FE862400A08FB4 /* ComicBox.xcdatamodeld */,
 			);
 			path = ComicBox;
 			sourceTree = "<group>";
@@ -260,7 +257,6 @@
 				8569C91C2203790100118785 /* BookmarksViewController.swift in Sources */,
 				8569C91A220378DE00118785 /* SearchViewController.swift in Sources */,
 				85DC96C821FE862400A08FB4 /* ViewController.swift in Sources */,
-				85869739220395F5007B801A /* Calendar.swift in Sources */,
 				85DC96CE21FE862400A08FB4 /* ComicBox.xcdatamodeld in Sources */,
 				8586973B2203D31B007B801A /* ComicShelfViewController.swift in Sources */,
 				85DC96C621FE862400A08FB4 /* AppDelegate.swift in Sources */,
