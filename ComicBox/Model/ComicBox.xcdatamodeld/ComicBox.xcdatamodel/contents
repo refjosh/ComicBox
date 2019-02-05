@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18E174f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Comic" representedClassName="Comic" syncable="YES" codeGenerationType="class">
+        <attribute name="bookmarked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="comicID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dateSearched" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="favorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="numberofTimesSearched" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="transcript" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LatestComic" representedClassName="LatestComic" syncable="YES" codeGenerationType="class">
+        <attribute name="comicID" optional="YES" attributeType="Integer 32" defaultValueString="1" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Comic" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="LatestComic" positionX="-18" positionY="108" width="128" height="60"/>
+    </elements>
+</model>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Alamofire
 import SwiftyJSON
 import ProgressHUD
@@ -33,15 +34,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //MARK: - Other Constants And Variable
     var randomComicID1: Int = 0
     var randomComicID2: Int = 0
-    var lastComicID: Int = 2105
+    var lastID: Int = 1
+    var firstID: Int = 1
     private var comicShelf = [String]()
-    private var allComics = [String]()
+    
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var comics = [Comic]()
+    
+    var loadedID = [LatestComic]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ProgressHUD.show("Updating")
         getRecentRelease()
+        print(dataFilePath)
         
+        loadLastestID()
+//        if Int(loadedID) != lastID {
+//            // Get All Comics
+//            getAllComics()
+//        }
     }
     
     
@@ -75,21 +89,46 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         recentReleaseTitle.text = result["safe_title"].string
         recentReleaseDate.text = "\(month)-\(day)-\(year)"
         recentReleaseDescription.text = result["alt"].string
-        
-        lastComicID = result["num"].int!
-        randomComicID1 = Int.random(in: 1 ... lastComicID)
-        randomComicID2 = Int.random(in: 1 ... lastComicID)
-        
-        getComics(comicID1: randomComicID1, comicID2: randomComicID2)
-        getAllComics()
 
+        lastID = result["num"].int!
+        
+        let newComicID = LatestComic(context: context)
+        newComicID.comicID = result["num"].int32!
+//        save()
+        
+        
+
+        randomComicID1 = Int.random(in: 1 ... lastID)
+        randomComicID2 = Int.random(in: 1 ... lastID)
+        // Get 2 Random Comis for Home Comic Shelf
+        getComics(comicID1: randomComicID1, comicID2: randomComicID2)
+
+    }
+    
+    //MARK: - Model Manupulation Methods
+    func save() {
+        do {
+            try context.save()
+        } catch  {
+            print(error)
+        }
+    }
+    
+    func loadLastestID() {
+        let request: NSFetchRequest<LatestComic> = LatestComic.fetchRequest()
+        do {
+            loadedID = try context.fetch(request)
+        } catch  {
+            print(error)
+        }
+        
     }
     
     
     
     //MARK: - Network To Get Comics
     func getComics(comicID1: Int, comicID2: Int) {
-        
+    // NEEDS TO BE REFRACTORED
         // Get First Comic and Add To Array
         Alamofire.request("https://xkcd.com/\(comicID1)/info.0.json").validate().responseJSON { (response) in
             switch response.result {
@@ -114,6 +153,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    
+    
     //MARK: - Update Array
     func updateComicShelfArray(_ title: String) {
         comicShelf.append(title)
@@ -121,15 +162,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Needs to be refractored because it refreshes twice
         comicShelfTable.reloadData()
     }
-    
-    func updateComicsLarge(_ title: String) {
-        allComics.append(title)
+    // Update Array for all comics
+    func updateComicsLarge(title: String, transcript: String, comicID: Int32, image: URL) {
+        let newComics = Comic(context: context)
+        newComics.title = title
+        newComics.transcript = transcript
+        newComics.comicID = comicID
+        newComics.image = image
+        newComics.bookmarked = false
+        newComics.favorite = false
+        save()
+        comics.append(newComics)
+        print(comics)
     }
     
     
     
     //MARK: - Dislay Error Message
     func handleErrors(_ error: Error) {
+        // NEEDS TO BE REFRACTORED
         print(error)
     }
     
@@ -147,14 +198,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    // Get all Comics
+    //MARK: - Get All Comics
     func getAllComics() {
-        for index in 1 ... lastComicID {
+        for index in firstID ... lastID {
             Alamofire.request("https://xkcd.com/\(index)/info.0.json").validate().responseJSON { (response) in
                 switch response.result {
                 case .success:
                     let result = JSON(response.result.value!)
-                    self.updateComicsLarge(result["safe_title"].string!)
+                    
+                    let title: String = result["safe_title"].string!
+                    let transcript: String = result["transcript"].string!
+                    let comicID = result["num"].int32 ?? 0
+                    let imageURL: URL = result["img"].url!
+                    
+                    self.updateComicsLarge(title: title, transcript: transcript, comicID: comicID, image: imageURL)
+                    
+                    
                 case .failure(let error):
                     self.handleErrors(error)
                 }
@@ -167,12 +226,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: "ToComicShelf", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToComicShelf" {
-            let comicView = segue.destination as! ComicShelfViewController
-            comicView.allComics = allComics
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ToComicShelf" {
+//            let comicView = segue.destination as! ComicShelfViewController
+//            comicView.allComics = Comics
+//        }
+//    }
     
     //End of HomeViewController
 }
