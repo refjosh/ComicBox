@@ -13,6 +13,7 @@
 		8569C91A220378DE00118785 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C919220378DE00118785 /* SearchViewController.swift */; };
 		8569C91C2203790100118785 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C91B2203790100118785 /* BookmarksViewController.swift */; };
 		8586973B2203D31B007B801A /* ComicShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586973A2203D31B007B801A /* ComicShelfViewController.swift */; };
+		85869788220A1922007B801A /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85869787220A1922007B801A /* Recent.swift */; };
 		85DC96C621FE862400A08FB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DC96C521FE862400A08FB4 /* AppDelegate.swift */; };
 		85DC96C821FE862400A08FB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DC96C721FE862400A08FB4 /* ViewController.swift */; };
 		85DC96CB21FE862400A08FB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DC96C921FE862400A08FB4 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		8569C919220378DE00118785 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8569C91B2203790100118785 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		8586973A2203D31B007B801A /* ComicShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicShelfViewController.swift; sourceTree = "<group>"; };
+		85869787220A1922007B801A /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		85DC96C221FE862400A08FB4 /* ComicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DC96C521FE862400A08FB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DC96C721FE862400A08FB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				85DC96CC21FE862400A08FB4 /* ComicBox.xcdatamodeld */,
+				85869787220A1922007B801A /* Recent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				8586973B2203D31B007B801A /* ComicShelfViewController.swift in Sources */,
 				85DC96C621FE862400A08FB4 /* AppDelegate.swift in Sources */,
 				8569C9162203789400118785 /* HomeViewController.swift in Sources */,
+				85869788220A1922007B801A /* Recent.swift in Sources */,
 				8569C918220378C400118785 /* FavoriteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

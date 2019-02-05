@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //MARK: - Recent Release UI Elements
     @IBOutlet weak var recentReleaseDate: UILabel!
     @IBOutlet weak var recentReleaseTitle: UILabel!
-    @IBOutlet weak var recentReleaseDescription: UILabel!
+    @IBOutlet weak var recentReleaseDescription: UIButton!
     @IBOutlet weak var recentReleaseBookmark: UIImageView!
     
     
@@ -41,12 +41,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    // Arrays
     var comics = [Comic]()
     
     var loadedID = [LatestComic]()
     
+    var recentContent: Recent?
+    
+    
+    // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         ProgressHUD.show("Updating")
         getRecentRelease()
         print(dataFilePath)
@@ -85,10 +93,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let year = result["year"].string!
         let month = result["month"].string!
         let day = result["day"].string!
+        let title = result["safe_title"].string
+        let content = result["alt"].string
         
-        recentReleaseTitle.text = result["safe_title"].string
+        recentReleaseTitle.text = title
         recentReleaseDate.text = "\(month)-\(day)-\(year)"
-        recentReleaseDescription.text = result["alt"].string
+        recentReleaseDescription.setTitle(content, for: .normal)
 
         lastID = result["num"].int!
         
@@ -104,6 +114,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         getComics(comicID1: randomComicID1, comicID2: randomComicID2)
 
     }
+    
+    @IBAction func recentReleaseTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "OverToRead", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+            if segue.identifier == "OverToRead" {
+                let comicView = segue.destination as! ViewController
+                comicView.comicID = lastID
+            }
+    }
+    
     
     //MARK: - Model Manupulation Methods
     func save() {

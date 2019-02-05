@@ -11,14 +11,20 @@ import Alamofire
 import SwiftyJSON
 import ProgressHUD
 
+
+
 class ViewController: UIViewController {
     
     
     @IBOutlet weak var pageImage: UIImageView!
     @IBOutlet weak var pageDescription: UITextView!
+    @IBOutlet weak var prevComicButton: UIButton!
+    @IBOutlet weak var nextComicButton: UIButton!
     
     
     var comicID: Int = 0
+    
+    var comicNumber: Int = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +49,23 @@ class ViewController: UIViewController {
     //MARK: - Update UI Elements with Content
     func updateWithContent(_ content: JSON) {
         
+        comicNumber = content["num"].int!
+        
+        if comicNumber == 1 {
+            prevComicButton.isEnabled = false
+            nextComicButton.isEnabled = true
+        } else if comicNumber == comicID {
+            nextComicButton.isEnabled = false
+            prevComicButton.isEnabled = true
+        } else {
+            nextComicButton.isEnabled = true
+            prevComicButton.isEnabled = true
+        }
+        
         let imageURL = URL(string: content["img"].string!)
         downloadImage(from: imageURL!)
         
-        pageDescription.text = content["transcript"].string
+        pageDescription.text = content["alt"].string
         
         navigationItem.title = content["safe_title"].string
     }
@@ -54,6 +73,20 @@ class ViewController: UIViewController {
     func updateImage(_ content: Data) {
         pageImage.image = UIImage(data: content)
     }
+    
+    //MARK: - Previous Comic
+    @IBAction func prevComicButtonPressed(_ sender: UIButton) {
+       comicNumber -= 1
+        getContent(id: comicNumber)
+    }
+    
+    //MARK: - Next Comic
+    @IBAction func nextComicButtonPressed(_ sender: UIButton) {
+        comicNumber += 1
+        getContent(id: comicNumber)
+    }
+    
+    
     
     
     //MARK: - Download Image

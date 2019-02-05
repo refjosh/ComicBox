@@ -197,17 +197,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" I [suspect] that we are throwing more and more of our resources, including the cream of our youth" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sys-JP-AP6">
-                                                <rect key="frame" x="17" y="80" width="303" height="51"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="51" id="Pmi-tP-nJN"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark-icon-large" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-hB-Wzq">
                                                 <rect key="frame" x="290" y="139" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="LAg-fV-hse"/>
+                                                    <constraint firstAttribute="height" constant="30" id="P5y-pN-1ot"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon - 1/28/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRN-k7-gW1">
                                                 <rect key="frame" x="229" y="11" width="91" height="14"/>
@@ -215,6 +210,19 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Uhu-9l-uLq">
+                                                <rect key="frame" x="17" y="80" width="303" height="51"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="51" id="QAJ-3h-VC9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title=" I [suspect] that we are throwing more and more of our resources, including the cream of our youth">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="recentReleaseTapped:" destination="6BZ-BG-lL3" eventType="touchUpInside" id="JYC-Qi-mBT"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -226,19 +234,19 @@
                                             <constraint firstItem="4tc-Is-Q16" firstAttribute="top" secondItem="e2A-uz-N78" secondAttribute="bottom" constant="21" id="9nd-bU-Afl"/>
                                             <constraint firstAttribute="height" constant="183" id="GWU-lt-a2t"/>
                                             <constraint firstItem="4tc-Is-Q16" firstAttribute="leading" secondItem="sif-zO-96p" secondAttribute="leading" constant="17" id="GgI-qz-JRe"/>
-                                            <constraint firstItem="Sys-JP-AP6" firstAttribute="top" secondItem="4tc-Is-Q16" secondAttribute="bottom" constant="8" id="M7g-rt-qWZ"/>
                                             <constraint firstItem="jRN-k7-gW1" firstAttribute="top" secondItem="sif-zO-96p" secondAttribute="top" constant="11" id="PCQ-O7-P1j"/>
-                                            <constraint firstItem="Sys-JP-AP6" firstAttribute="top" secondItem="jRN-k7-gW1" secondAttribute="bottom" constant="55" id="PTM-Fh-Veu"/>
                                             <constraint firstItem="jRN-k7-gW1" firstAttribute="leading" secondItem="e2A-uz-N78" secondAttribute="trailing" constant="44" id="TSi-5a-Y8e"/>
-                                            <constraint firstItem="ckv-hB-Wzq" firstAttribute="trailing" secondItem="Sys-JP-AP6" secondAttribute="trailing" id="UeU-rS-yOb"/>
-                                            <constraint firstAttribute="trailing" secondItem="Sys-JP-AP6" secondAttribute="trailing" constant="23" id="WKC-JR-yhi"/>
-                                            <constraint firstItem="Sys-JP-AP6" firstAttribute="leading" secondItem="sif-zO-96p" secondAttribute="leading" constant="17" id="WYY-R8-yed"/>
+                                            <constraint firstAttribute="trailing" secondItem="ckv-hB-Wzq" secondAttribute="trailing" constant="23" id="UgB-T0-V0L"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4tc-Is-Q16" secondAttribute="trailing" constant="20" symbolic="YES" id="WZf-xf-tDp"/>
-                                            <constraint firstItem="ckv-hB-Wzq" firstAttribute="top" secondItem="Sys-JP-AP6" secondAttribute="bottom" constant="8" id="byr-Ft-GAB"/>
+                                            <constraint firstItem="Uhu-9l-uLq" firstAttribute="leading" secondItem="sif-zO-96p" secondAttribute="leading" constant="17" id="XQq-Tb-PiE"/>
+                                            <constraint firstItem="Uhu-9l-uLq" firstAttribute="top" secondItem="4tc-Is-Q16" secondAttribute="bottom" constant="8" id="YhQ-o3-k1Z"/>
                                             <constraint firstItem="4tc-Is-Q16" firstAttribute="top" secondItem="k4x-AI-P1W" secondAttribute="bottom" constant="23" id="e9o-MS-QkM"/>
                                             <constraint firstAttribute="trailing" secondItem="jRN-k7-gW1" secondAttribute="trailing" constant="23" id="eOf-tz-uJR"/>
-                                            <constraint firstItem="Sys-JP-AP6" firstAttribute="top" secondItem="4tc-Is-Q16" secondAttribute="bottom" constant="8" id="emF-ZO-aix"/>
+                                            <constraint firstAttribute="bottom" secondItem="ckv-hB-Wzq" secondAttribute="bottom" constant="14" id="eRm-SF-f1Y"/>
+                                            <constraint firstItem="Uhu-9l-uLq" firstAttribute="top" secondItem="jRN-k7-gW1" secondAttribute="bottom" constant="55" id="j3a-Pd-ef3"/>
                                             <constraint firstItem="e2A-uz-N78" firstAttribute="leading" secondItem="k4x-AI-P1W" secondAttribute="trailing" constant="8" id="lEy-1U-NDC"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uhu-9l-uLq" secondAttribute="trailing" constant="23" id="mel-BY-0hF"/>
+                                            <constraint firstItem="Uhu-9l-uLq" firstAttribute="top" secondItem="4tc-Is-Q16" secondAttribute="bottom" constant="8" id="nPb-t9-Qdo"/>
                                             <constraint firstItem="k4x-AI-P1W" firstAttribute="leading" secondItem="sif-zO-96p" secondAttribute="leading" constant="17" id="ngK-ha-374"/>
                                         </constraints>
                                     </view>
@@ -473,9 +481,10 @@
                         <outlet property="newBookmarkTitle" destination="Ajc-2g-aS4" id="Gej-wa-Prv"/>
                         <outlet property="recentReleaseBookmark" destination="ckv-hB-Wzq" id="zhd-x7-FYz"/>
                         <outlet property="recentReleaseDate" destination="jRN-k7-gW1" id="DTY-wR-QPu"/>
-                        <outlet property="recentReleaseDescription" destination="Sys-JP-AP6" id="mHz-YS-yty"/>
+                        <outlet property="recentReleaseDescription" destination="Uhu-9l-uLq" id="74M-7p-ZKi"/>
                         <outlet property="recentReleaseTitle" destination="4tc-Is-Q16" id="g8f-if-wtw"/>
                         <segue destination="fRn-r3-E8u" kind="show" identifier="ToComicShelf" id="zyu-Jz-2mV"/>
+                        <segue destination="7hh-c3-cYg" kind="show" identifier="OverToRead" id="dsC-ah-PRf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ci2-8g-j4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -755,12 +764,12 @@
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vIf-n5-ris">
                                         <rect key="frame" x="13" y="266" width="328" height="178"/>
-                                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="178" id="PuV-FA-RMx"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="62" translatesAutoresizingMaskIntoConstraints="NO" id="fhG-PE-jIq">
@@ -769,6 +778,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Bl-wO-wMu">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                 <state key="normal" image="prev"/>
+                                                <connections>
+                                                    <action selector="prevComicButtonPressed:" destination="7hh-c3-cYg" eventType="touchUpInside" id="Dmh-vd-vp2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdh-as-FZ4">
                                                 <rect key="frame" x="95" y="0.0" width="33" height="33"/>
@@ -778,6 +790,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOe-k8-HE9">
                                                 <rect key="frame" x="190" y="0.0" width="33" height="33"/>
                                                 <state key="normal" image="next"/>
+                                                <connections>
+                                                    <action selector="nextComicButtonPressed:" destination="7hh-c3-cYg" eventType="touchUpInside" id="cHU-oG-nQz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -809,8 +824,10 @@
                         <viewLayoutGuide key="safeArea" id="oyg-Ad-J7e"/>
                     </view>
                     <connections>
+                        <outlet property="nextComicButton" destination="oOe-k8-HE9" id="YBc-ZL-WOl"/>
                         <outlet property="pageDescription" destination="vIf-n5-ris" id="A3h-Fv-atU"/>
                         <outlet property="pageImage" destination="aYb-Fw-hlw" id="2s0-Ny-m3A"/>
+                        <outlet property="prevComicButton" destination="5Bl-wO-wMu" id="GSF-oe-SCv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gE-nl-igY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -907,4 +924,7 @@
         <image name="recently-favorite" width="20" height="20"/>
         <image name="shelf-icon" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dsC-ah-PRf"/>
+    </inferredMetricsTieBreakers>
 </document>
