@@ -53,13 +53,23 @@ class ViewController: UIViewController {
         
         if comicNumber == 1 {
             prevComicButton.isEnabled = false
-            nextComicButton.isEnabled = true
+            prevComicButton.setImage(nil, for: .normal)
+            prevComicButton.setTitle("The End", for: .normal)
+            prevComicButton.setTitleColor(UIColor.gray, for: .normal)
+            
         } else if comicNumber == comicID {
             nextComicButton.isEnabled = false
-            prevComicButton.isEnabled = true
+            nextComicButton.setImage(nil, for: .normal)
+            nextComicButton.setTitle("The End", for: .normal)
+            nextComicButton.setTitleColor(UIColor.gray, for: .normal)
         } else {
             nextComicButton.isEnabled = true
+            nextComicButton.setImage(UIImage(named: "next"), for: .normal)
+            nextComicButton.setTitle(nil, for: .normal)
+            
             prevComicButton.isEnabled = true
+            prevComicButton.setImage(UIImage(named: "prev"), for: .normal)
+            prevComicButton.setTitle(nil, for: .normal)
         }
         
         let imageURL = URL(string: content["img"].string!)
