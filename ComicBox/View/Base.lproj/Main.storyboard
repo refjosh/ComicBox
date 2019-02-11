@@ -485,7 +485,7 @@
                         <outlet property="recentReleaseDescription" destination="Uhu-9l-uLq" id="74M-7p-ZKi"/>
                         <outlet property="recentReleaseTitle" destination="4tc-Is-Q16" id="g8f-if-wtw"/>
                         <segue destination="fRn-r3-E8u" kind="show" identifier="ToComicShelf" id="zyu-Jz-2mV"/>
-                        <segue destination="7hh-c3-cYg" kind="show" identifier="OverToRead" id="dsC-ah-PRf"/>
+                        <segue destination="7hh-c3-cYg" kind="show" identifier="ToRead" id="BPX-KO-loJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ci2-8g-j4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -946,6 +946,6 @@
         <image name="shelf-icon" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dsC-ah-PRf"/>
+        <segue reference="BPX-KO-loJ"/>
     </inferredMetricsTieBreakers>
 </document>

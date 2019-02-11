@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         ProgressHUD.show("Updating")
         getRecentRelease()
-        print(dataFilePath)
+//        print(dataFilePath)
         
         comicShelfTable.separatorStyle = .none
         
@@ -115,7 +115,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     }
     
-    //MARK: - Network To Get Comics
+    //MARK: - Network To Get Random Comics For Shelf
     func getComics(comicID: [Int]) {
         // Get First Comic and Add To Array
         for id in randomComicID {
@@ -159,7 +159,44 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         passID = comicShelf[indexPath.row].comicID
-        performSegue(withIdentifier: "OverToRead", sender: self)
+        if passID != 0 {
+            performSegue(withIdentifier: "ToRead", sender: self)
+        }
+    }
+    
+    
+    @IBAction func recentReleaseTapped(_ sender: UIButton) {
+        passID = lastID
+        if passID != 0 {
+            performSegue(withIdentifier: "ToRead", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let comicView = segue.destination as! ViewController
+        
+        if segue.identifier == "ToRead" {
+            comicView.comicID = passID
+        }
+    }
+    
+    
+    //MARK: - Model Manupulation Methods
+    func save() {
+        do {
+            try context.save()
+        } catch  {
+            print(error)
+        }
+    }
+    
+    func loadLastestID() {
+        let request: NSFetchRequest<LatestComic> = LatestComic.fetchRequest()
+        do {
+            loadedID = try context.fetch(request)
+        } catch  {
+            print(error)
+        }
         
     }
     
@@ -184,40 +221,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
-//        comicShelfTable.reloadData()
-    }
-    
-    @IBAction func recentReleaseTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "OverToRead", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let comicView = segue.destination as! ViewController
-            if let _ = comicShelfTable.indexPathForSelectedRow  {
-                comicView.comicID = lastID
-            } else if segue.identifier == "OverToRead" {
-            comicView.comicID = Int(passID)
-        }
-    }
-    
-    
-    //MARK: - Model Manupulation Methods
-    func save() {
-        do {
-            try context.save()
-        } catch  {
-            print(error)
-        }
-    }
-    
-    func loadLastestID() {
-        let request: NSFetchRequest<LatestComic> = LatestComic.fetchRequest()
-        do {
-            loadedID = try context.fetch(request)
-        } catch  {
-            print(error)
-        }
-        
+        //        comicShelfTable.reloadData()
     }
     
     
@@ -236,7 +240,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         newComics.favorite = false
         save()
         comics.append(newComics)
-        print(comics)
+//        print(comics)
     }
     
     
