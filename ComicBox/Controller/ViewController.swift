@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     
     var comicID: Int = 0
+    var endingID: Int = 0
     
     var comicNumber: Int = 1
 
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         getContent(id: comicID)
+        pageDescription.text = ""
     }
     
     //MARK: - Fetch Data
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
             prevComicButton.setTitle("The End", for: .normal)
             prevComicButton.setTitleColor(UIColor.gray, for: .normal)
             
-        } else if comicNumber == comicID {
+        } else if comicNumber == endingID {
             nextComicButton.isEnabled = false
             nextComicButton.setImage(nil, for: .normal)
             nextComicButton.setTitle("The End", for: .normal)
@@ -73,7 +75,9 @@ class ViewController: UIViewController {
         }
         
         let imageURL = URL(string: content["img"].string!)
-        downloadImage(from: imageURL!)
+        DispatchQueue.main.async {
+            self.downloadImage(from: imageURL!)
+        }
         
         pageDescription.text = content["alt"].string
         

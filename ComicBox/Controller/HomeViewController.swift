@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //MARK: - Other Constants And Variable
     var randomComicID = [Int]()
     
-    var lastID: Int = 1
+    fileprivate var lastID: Int = 1
     var firstID: Int = 1
     private var comicShelf = [ComicShelf]()
     
@@ -42,7 +42,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // Arrays
-    var comics = [Comic]()
+//    var comics = [Comic]()
+    var comic = [Comics]()
     
     var loadedID = [LatestComic]()
     
@@ -60,12 +61,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        print(dataFilePath)
         
         comicShelfTable.separatorStyle = .none
-        
-        loadLastestID()
-//        if Int(loadedID) != lastID {
-            // Get All Comics
-            getAllComics()
-//        }
     }
     
     
@@ -172,76 +167,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let comicView = segue.destination as! ViewController
-        
-        if segue.identifier == "ToRead" {
-            comicView.comicID = passID
-        }
-    }
-    
-    
-    //MARK: - Model Manupulation Methods
-    func save() {
-        do {
-            try context.save()
-        } catch  {
-            print(error)
-        }
-    }
-    
-    func loadLastestID() {
-        let request: NSFetchRequest<LatestComic> = LatestComic.fetchRequest()
-        do {
-            loadedID = try context.fetch(request)
-        } catch  {
-            print(error)
-        }
-        
-    }
-    
-    //MARK: - Get All Comics
-    func getAllComics() {
-        for index in firstID ... lastID {
-            Alamofire.request("https://xkcd.com/\(index)/info.0.json").validate().responseJSON { (response) in
-                switch response.result {
-                case .success:
-                    let result = JSON(response.result.value!)
-                    
-                    let title: String = result["safe_title"].string!
-                    let transcript: String = result["alt"].string!
-                    let comicID = result["num"].int32 ?? 0
-                    let imageURL: URL = result["img"].url!
-                    
-                    self.updateComicsLarge(title: title, transcript: transcript, comicID: comicID, image: imageURL)
-                    
-                    
-                case .failure(let error):
-                    self.handleErrors(error)
-                }
-            }
-        }
-        //        comicShelfTable.reloadData()
-    }
-    
-    
-    
-   
-    
-    
-    // Update Array for all comics
-    func updateComicsLarge(title: String, transcript: String, comicID: Int32, image: URL) {
-        let newComics = Comic(context: context)
-        newComics.title = title
-        newComics.transcript = transcript
-        newComics.comicID = comicID
-        newComics.image = image
-        newComics.bookmarked = false
-        newComics.favorite = false
-        save()
-        comics.append(newComics)
-//        print(comics)
-    }
     
     
     
@@ -260,13 +185,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func viewAllComics(_ sender: UIButton) {
         performSegue(withIdentifier: "ToComicShelf", sender: self)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ToComicShelf" {
-//            let comicView = segue.destination as! ComicShelfViewController
-//            comicView.allComics = Comics
-//        }
-//    }
+    //MARK: - Multiple Segue Performance
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ToRead" {
+            let comicView = segue.destination as! ViewController
+            comicView.comicID = passID
+        } else if segue.identifier == "ToComicShelf" {
+            let comicShelf = segue.destination as! ComicShelfViewController
+            comicShelf.endingID = lastID
+        }
+    }
     
     //End of HomeViewController
 }

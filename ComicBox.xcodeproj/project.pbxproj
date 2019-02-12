@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6296F900E72EB41DD00FD776 /* Pods_ComicBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86220D0885DD2D1456F1281A /* Pods_ComicBox.framework */; };
+		854847D322125C8700265328 /* Comics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854847D222125C8700265328 /* Comics.swift */; };
 		8569C9162203789400118785 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C9152203789400118785 /* HomeViewController.swift */; };
 		8569C918220378C400118785 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C917220378C400118785 /* FavoriteViewController.swift */; };
 		8569C91A220378DE00118785 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569C919220378DE00118785 /* SearchViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		4F1F35B50E43BC118F982097 /* Pods-ComicBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ComicBox.debug.xcconfig"; path = "Target Support Files/Pods-ComicBox/Pods-ComicBox.debug.xcconfig"; sourceTree = "<group>"; };
+		854847D222125C8700265328 /* Comics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comics.swift; sourceTree = "<group>"; };
 		8569C9152203789400118785 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8569C917220378C400118785 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		8569C919220378DE00118785 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				85DC96CC21FE862400A08FB4 /* ComicBox.xcdatamodeld */,
 				85869787220A1922007B801A /* Recent.swift */,
 				85869789220AA6C0007B801A /* ComicShelf.swift */,
+				854847D222125C8700265328 /* Comics.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				8586978A220AA6C0007B801A /* ComicShelf.swift in Sources */,
 				85DC96C821FE862400A08FB4 /* ViewController.swift in Sources */,
 				85DC96CE21FE862400A08FB4 /* ComicBox.xcdatamodeld in Sources */,
+				854847D322125C8700265328 /* Comics.swift in Sources */,
 				8586973B2203D31B007B801A /* ComicShelfViewController.swift in Sources */,
 				85DC96C621FE862400A08FB4 /* AppDelegate.swift in Sources */,
 				8569C9162203789400118785 /* HomeViewController.swift in Sources */,
